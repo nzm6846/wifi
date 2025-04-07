@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" id="WebApp_ID" version="6.0">
+  <display-name>SevletTest</display-name>
+  
+	<servlet>
+		<servlet-name>T01SevletLifeCycle</servlet-name>
+		<servlet-class>kr.or.ddit.web.T01SevletLifeCycle</servlet-class>
+		<init-param>
+			<param-name>initParam</param-name>
+			<param-value>초기값 설정</param-value>
+		</init-param>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>T01SevletLifeCycle</servlet-name>
+		<url-pattern>/T01SevletLifeCycle</url-pattern>
+	</servlet-mapping>
+	
+	<!---->
+	
+	<servlet>
+		<servlet-name>T02SerbletTest</servlet-name>
+		<servlet-class>kr.or.ddit.web.T02SerbletTest</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>T02SerbletTest</servlet-name>
+		<url-pattern>/T02SerbletTest</url-pattern>
+	</servlet-mapping>
+	
+	<!---->
+	
+	<servlet>
+		<servlet-name>T03RequestTest</servlet-name>
+		<servlet-class>kr.or.ddit.web.T03RequestTest</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>T03RequestTest</servlet-name>
+		<url-pattern>/T03RequestTest</url-pattern>
+	</servlet-mapping> 
+	
+	
+	<servlet>
+		<servlet-name>MemberController</servlet-name>
+		<servlet-class>kr.or.ddit.member.MemberController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MemberController</servlet-name>
+		<url-pattern>/member.do</url-pattern>
+	</servlet-mapping> 
+	
+	<servlet>
+		<servlet-name>MemberDetail</servlet-name>
+		<servlet-class>kr.or.ddit.member.MemberDetail</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MemberDetail</servlet-name>
+		<url-pattern>/member.do/memberDatil</url-pattern>
+	</servlet-mapping> 
+	
+	<servlet>
+		<servlet-name>T04ServeletParameter</servlet-name>
+		<servlet-class>kr.or.ddit.web.T04ServeletParameter</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>T04ServeletParameter</servlet-name>
+		<url-pattern>/T04ServeletParameter</url-pattern>
+	</servlet-mapping> 
+	
+	
+	<error-page>
+		<error-code>500</error-code>
+		<location>/T05ErrorHandler</location>
+	</error-page>
+	
+	<error-page>
+		<error-code>404</error-code>
+		<location>/T05ErrorHandler</location>
+	</error-page>
+	
+	<session-config>
+		<session-timeout>1</session-timeout> <!--분기준 / 기본값30분-->
+	</session-config>
+	
+	
+	<filter>
+	  	<filter-name>T10ServeletFilter</filter-name>
+	  	<filter-class>kr.or.ddit.web.T10ServeletFilter</filter-class>
+	  	<init-param>
+	  		<param-name>encode</param-name>
+	  		<param-value>UTF-8</param-value>
+	  	</init-param>
+  	</filter>
+  <filter-mapping>
+  	<filter-name>T10ServeletFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+	
+	
+	<listener>
+		<description>MyServletListner</description>
+		<listener-class>kr.or.ddit.web.MyServletListner</listener-class>
+	</listener>
+	
+	<servlet>
+		<servlet-name>LoginController</servlet-name>
+		<servlet-class>kr.or.ddit.member.LoginController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginController</servlet-name>
+		<url-pattern>/Login.do</url-pattern>
+	</servlet-mapping> 
+	
+	
+	
+	
+
+</web-app>
