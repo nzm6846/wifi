@@ -15,8 +15,8 @@
 	                        데이터베이스 연결을 초기화하고 사용자를 인증하는 과정이 없기 때문에 속도가 빠르다.
 	 -->
 <!--	<typeAliases>
-		<typeAlias type="kr.or.ddit.member.MemberVo" alias="MemberVo" />
-	</typeAliases>-->
+			<typeAlias type="kr.or.ddit.member.MemberVo" alias="MemberVo" />
+		</typeAliases>-->
 	
 	<environments default="dev">
 		<environment id="dev">
