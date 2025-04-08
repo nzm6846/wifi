@@ -5,11 +5,16 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+
+import kr.or.ddit.vo.WifiVo;
 
 public class ApiExplorer {
 	public static void main(String[] args) throws IOException {
@@ -50,7 +55,7 @@ public class ApiExplorer {
 			}
 			rd.close();
 			conn.disconnect();
-			System.out.println(sb.toString());
+			//System.out.println(sb.toString());
 			
 			JsonParser jsonParser = new JsonParser();
 			JsonObject jobj = (JsonObject) jsonParser.parse(sb.toString());
@@ -61,28 +66,17 @@ public class ApiExplorer {
 				total = jsrow.get("list_total_count").getAsInt();
 			}
 			
-			System.out.println(total);
+//			System.out.println(total);
 			JsonArray  jsarr = (JsonArray) jsrow.get("row");
+			
+			Gson gson = new Gson();
 			
 			for(int i=0; i<jsarr.size(); i++) {
 				JsonObject obj = (JsonObject) jsarr.get(i);
-				System.out.println(obj.get("X_SWIFI_MGR_NO"));
-				System.out.println(obj.get("X_SWIFI_WRDOFC"));
-				System.out.println(obj.get("X_SWIFI_MAIN_NM"));
-				System.out.println(obj.get("X_SWIFI_ADRES1"));
-				System.out.println(obj.get("X_SWIFI_ADRES2"));
-				System.out.println(obj.get("X_SWIFI_INSTL_FLOOR"));
-				System.out.println(obj.get("X_SWIFI_INSTL_TY"));
-				System.out.println(obj.get("X_SWIFI_INSTL_MBY"));
-				System.out.println(obj.get("X_SWIFI_SVC_SE"));
-				System.out.println(obj.get("X_SWIFI_CMCWR"));
-				System.out.println(obj.get("X_SWIFI_CNSTC_YEAR"));
-				System.out.println(obj.get("X_SWIFI_INOUT_DOOR"));
-				System.out.println(obj.get("X_SWIFI_REMARS3"));
-				System.out.println(obj.get("LAT"));
-				System.out.println(obj.get("LNT"));
-				System.out.println(obj.get("WORK_DTTM"));
-				
+				WifiVo vo = gson.fromJson(obj.toString(), WifiVo.class);
+				System.out.println(vo);
+			
+			
 			} 
 			
 			start +=10;
