@@ -74,7 +74,8 @@ public class ApiExplorer {
 			for(int i=0; i<jsarr.size(); i++) {
 				JsonObject obj = (JsonObject) jsarr.get(i);
 				WifiVo vo = gson.fromJson(obj.toString(), WifiVo.class);
-				System.out.println(vo);
+				
+				
 			
 			
 			} 
