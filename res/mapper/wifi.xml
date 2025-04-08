@@ -25,10 +25,6 @@
 </resultMap>
 	
 	
-	<select id="wifiList" resultType="WifiVo">
-	
-		
-	</select>
 	
 	<insert id="wifiInsert" parameterType="WifiVo">
 		INSERT INTO wifi (X_SWIFI_MGR_NO, X_SWIFI_WRDOFC, X_SWIFI_MAIN_NM, X_SWIFI_ADRES1, X_SWIFI_ADRES2,
@@ -39,5 +35,23 @@
 				#{X_SWIFI_CNSTC_YEAR}, #{X_SWIFI_INOUT_DOOR}, #{X_SWIFI_REMARS3}, #{LAT}, #{LNT}, #{WORK_DTTM})
 	
 	</insert>
+	
+	<select id="wifiList" resultMap="WifiMap" parameterType="WifiVo">
+	
+			SELECT
+			  X_SWIFI_MAIN_NM, X_SWIFI_WRDOFC, X_SWIFI_MGR_NO, X_SWIFI_ADRES1, X_SWIFI_ADRES2,
+			  X_SWIFI_INSTL_FLOOR, X_SWIFI_INSTL_TY, X_SWIFI_INSTL_MBY, X_SWIFI_SVC_SE, X_SWIFI_CMCWR,
+			  X_SWIFI_CNSTC_YEAR, X_SWIFI_INOUT_DOOR, X_SWIFI_REMARS3, LAT, LNT, WORK_DTTM,
+			  6371 * ACOS(
+			    COS(#{LAT} * (ACOS(-1)/180)) 
+			    * COS(LAT * (ACOS(-1)/180))
+			    + SIN(#{LAT} * (ACOS(-1)/180))
+			    * SIN(LAT * (ACOS(-1)/180))
+			    * COS((#{LNT} - LNT) * (ACOS(-1)/180)) 
+			  ) AS DISTANCE_KM
+			FROM WIFI
+			ORDER BY DISTANCE_KM
+			FETCH FIRST 30 ROWS ONLY
+	</select>
 
 </mapper>

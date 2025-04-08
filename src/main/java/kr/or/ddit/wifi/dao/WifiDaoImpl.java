@@ -21,9 +21,9 @@ public class WifiDaoImpl extends MybatisDao implements IWifiDao {
 	}
 
 	@Override
-	public List<WifiVo> wifiList() {
+	public List<WifiVo> wifiList(WifiVo vo) {
 		// TODO Auto-generated method stub
-		return null;
+		return selectList("Wifi.wifiList",vo);
 	}
 
 	@Override

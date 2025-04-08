@@ -21,9 +21,9 @@ public class WifiServiceImpl implements IWifiService {
 	}
 
 	@Override
-	public List<WifiVo> wifiList() {
+	public List<WifiVo> wifiList(WifiVo vo) {
 		// TODO Auto-generated method stub
-		return null;
+		return wifiDao.wifiList(vo);
 	}
 
 	@Override
