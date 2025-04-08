@@ -2,10 +2,42 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Wifi">
 
-<resultMap id="wifis" type="WifiMap">
+	
+
+
+<resultMap id="WifiMap" type="WifiVo">
 	<id column="X_SWIFI_MGR_NO" property="X_SWIFI_MGR_NO"/>
-	<result column="" property="" />
+	<result column="X_SWIFI_WRDOFC" property="X_SWIFI_WRDOFC" />
+	<result column="X_SWIFI_MAIN_NM" property="X_SWIFI_MAIN_NM" />
+	<result column="X_SWIFI_ADRES1" property="X_SWIFI_ADRES1" />
+	<result column="X_SWIFI_ADRES2" property="X_SWIFI_ADRES2" />
+	<result column="X_SWIFI_INSTL_FLOOR" property="X_SWIFI_INSTL_FLOOR" />
+	<result column="X_SWIFI_INSTL_TY" property="X_SWIFI_INSTL_TY" />
+	<result column="X_SWIFI_INSTL_MBY" property="X_SWIFI_INSTL_MBY" />
+	<result column="X_SWIFI_SVC_SE" property="X_SWIFI_SVC_SE" />
+	<result column="X_SWIFI_CMCWR" property="X_SWIFI_CMCWR" />
+	<result column="X_SWIFI_CNSTC_YEAR" property="X_SWIFI_CNSTC_YEAR" />
+	<result column="X_SWIFI_INOUT_DOOR" property="X_SWIFI_INOUT_DOOR" />
+	<result column="X_SWIFI_REMARS3" property="X_SWIFI_REMARS3" />
+	<result column="LAT" property="LAT" />
+	<result column="LNT" property="LNT" />
+	<result column="WORK_DTTM" property="WORK_DTTM" />
 </resultMap>
 	
+	
+	<select id="wifiList" resultType="WifiVo">
+	
+		
+	</select>
+	
+	<insert id="wifiInsert" parameterType="WifiVo">
+		INSERT INTO wifi (X_SWIFI_MGR_NO, X_SWIFI_WRDOFC, X_SWIFI_MAIN_NM, X_SWIFI_ADRES1, X_SWIFI_ADRES2,
+		 X_SWIFI_INSTL_FLOOR, X_SWIFI_INSTL_TY, X_SWIFI_INSTL_MBY, X_SWIFI_SVC_SE, X_SWIFI_CMCWR, X_SWIFI_CNSTC_YEAR,
+		  X_SWIFI_INOUT_DOOR, X_SWIFI_REMARS3, LAT, LNT, WORK_DTTM)
+		VALUES (#{X_SWIFI_MGR_NO}, #{X_SWIFI_WRDOFC}, #{X_SWIFI_MAIN_NM}, #{X_SWIFI_ADRES1}, #{X_SWIFI_ADRES2},
+				#{X_SWIFI_INSTL_FLOOR}, #{X_SWIFI_INSTL_TY}, #{X_SWIFI_INSTL_MBY}, #{X_SWIFI_SVC_SE}, #{X_SWIFI_CMCWR},
+				#{X_SWIFI_CNSTC_YEAR}, #{X_SWIFI_INOUT_DOOR}, #{X_SWIFI_REMARS3}, #{LAT}, #{LNT}, #{WORK_DTTM})
+	
+	</insert>
 
 </mapper>

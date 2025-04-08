@@ -14,9 +14,9 @@
 	                        미리 DB 커넥션 객체를 생성해 두고 요청하면 즉시 반환한다.
 	                        데이터베이스 연결을 초기화하고 사용자를 인증하는 과정이 없기 때문에 속도가 빠르다.
 	 -->
-<!--	<typeAliases>
-			<typeAlias type="kr.or.ddit.member.MemberVo" alias="MemberVo" />
-		</typeAliases>-->
+		<typeAliases>
+			<typeAlias type="kr.or.ddit.vo.WifiVo" alias="WifiVo" />
+		</typeAliases>
 	
 	<environments default="dev">
 		<environment id="dev">
@@ -35,7 +35,7 @@
 	</environments>
 	<mappers>
 <!-- 		<mapper resource="mapper/file.xml"/> -->
-		<mapper resource="mapper/member.xml" />
+		<mapper resource="mapper/wifi.xml" />
 	</mappers>
 
 </configuration>

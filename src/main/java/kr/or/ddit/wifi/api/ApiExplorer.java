@@ -15,14 +15,15 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 import kr.or.ddit.vo.WifiVo;
+import kr.or.ddit.wifi.service.WifiServiceImpl;
 
 public class ApiExplorer {
 	public static void main(String[] args) throws IOException {
 		int start=1;
 		int end=10;
 		int total=0;
-		
-		do {
+		WifiServiceImpl wifiService = WifiServiceImpl.getInsatance();
+		 do  {
 			
 			StringBuilder urlBuilder = new StringBuilder("http://openapi.seoul.go.kr:8088"); /*URL*/
 			urlBuilder.append("/" +  URLEncoder.encode("74626f746879707532354c6343456b","UTF-8") ); /*인증키 (sample사용시에는 호출시 제한됩니다.)*/
@@ -74,14 +75,12 @@ public class ApiExplorer {
 			for(int i=0; i<jsarr.size(); i++) {
 				JsonObject obj = (JsonObject) jsarr.get(i);
 				WifiVo vo = gson.fromJson(obj.toString(), WifiVo.class);
-				
-				
-			
-			
+				wifiService.wifiInsert(vo);
+
 			} 
 			
 			start +=10;
 			end+=10;
-		}while(start<=total);
+		}  while(start<=total); 
 	}
 }

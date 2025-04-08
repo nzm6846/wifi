@@ -8,6 +8,7 @@ import kr.or.ddit.vo.WifiVo;
 public class WifiDaoImpl extends MybatisDao implements IWifiDao {
 	private static WifiDaoImpl insatance;
 
+	
 	private WifiDaoImpl() {
 
 	}
@@ -22,7 +23,14 @@ public class WifiDaoImpl extends MybatisDao implements IWifiDao {
 	@Override
 	public List<WifiVo> wifiList() {
 		// TODO Auto-generated method stub
-		return selectList(null);
+		return null;
 	}
+
+	@Override
+	public void wifiInsert(WifiVo vo) {
+		// TODO Auto-generated method stub
+		 update("Wifi.wifiInsert",vo);
+	}
+
 	
 }
