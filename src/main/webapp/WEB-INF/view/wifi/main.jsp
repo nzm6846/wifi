@@ -36,7 +36,7 @@ $('#xy').on('click',function(){
 
 				data.forEach(function(wifi){
 					   code += "<tr>";
-					   code += "<td>" + wifi.DISTANCE_KM + "</td>";
+					   code += "<td>" + wifi.DISTANCE_KM +"KM"+ "</td>";
 					   code += "<td>" + wifi.X_SWIFI_MGR_NO + "</td>";
 					   code += "<td>" + wifi.X_SWIFI_WRDOFC + "</td>";
 					   code += "<td>" + wifi.X_SWIFI_MAIN_NM + "</td>";
