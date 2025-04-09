@@ -22,6 +22,7 @@
 	<result column="LAT" property="LAT" />
 	<result column="LNT" property="LNT" />
 	<result column="WORK_DTTM" property="WORK_DTTM" />
+	<result column="DISTANCE_KM" property="DISTANCE_KM" />
 </resultMap>
 	
 	

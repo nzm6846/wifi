@@ -20,6 +20,8 @@ public class WifiVo {
 	private String LAT;                   // Y좌표
 	private String LNT;                   // X좌표
 	private String WORK_DTTM;             // 작업일자
+	
+	private String DISTANCE_KM;			  //거리
 
 
 }

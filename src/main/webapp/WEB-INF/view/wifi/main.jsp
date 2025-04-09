@@ -32,10 +32,11 @@ $('#xy').on('click',function(){
 		},
 		success: function(data){
 			code="<table border='1'>"
-			code+="<tr><th>관리번호</th><th>자치구</th><th>와이파이명</th><th>도로명주소</th><th>상세주소</th><th>설치위치(층)</th><th>설치유형</th><th>설치기관</th><th>서비스구분</th><th>망종류</th><th>설치년도</th><th>실내외구분</th><th>wifi접속환경</th><th>Y좌표</th><th>X좌표</th><th>작업일자</th></tr>"
+			code+="<tr><th>거리</th><th>관리번호</th><th>자치구</th><th>와이파이명</th><th>도로명주소</th><th>상세주소</th><th>설치위치(층)</th><th>설치유형</th><th>설치기관</th><th>서비스구분</th><th>망종류</th><th>설치년도</th><th>실내외구분</th><th>wifi접속환경</th><th>Y좌표</th><th>X좌표</th><th>작업일자</th></tr>"
 
 				data.forEach(function(wifi){
 					   code += "<tr>";
+					   code += "<td>" + wifi.DISTANCE_KM + "</td>";
 					   code += "<td>" + wifi.X_SWIFI_MGR_NO + "</td>";
 					   code += "<td>" + wifi.X_SWIFI_WRDOFC + "</td>";
 					   code += "<td>" + wifi.X_SWIFI_MAIN_NM + "</td>";
